@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+## setting and getting the value of matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -11,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   get <- function() x
   setinverse <- function(inverse) m <<- inverse
-  getinverse <<- function() m
+  getinverse <- function() m
   
   list(set = set, get = get, 
        setinverse = setinverse, getinverse = getinverse)
@@ -29,7 +30,7 @@ cacheSolve <- function(x, ...) {
     return(m)
   }
   data <- x$get()
-  m <- solve(data)
-  x$setmean(m)
+  m <- solve(data) ## solve is used for inverse 
+  x$setinverse(m)
   m
 }
